@@ -76,7 +76,7 @@ th {
 }
 
 .search:focus {
-  width: 72%;
+  width: 100%;
 }
 
 .deleteBtn{
