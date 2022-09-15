@@ -5,7 +5,7 @@ import { setUserSlice } from "../redux/slice/user";
 import { nanoid } from "@reduxjs/toolkit";
 import { CREATE_USER, UPDATE_USER_BY_ID } from "../redux/types";
 
-const Modal = ({ updateModalState, show, type }) => {
+const Modal = ({ updateModalState, show, type, resetForm }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const handleChange = (event) => {
@@ -20,15 +20,7 @@ const Modal = ({ updateModalState, show, type }) => {
       ? dispatch({ type: CREATE_USER, user: { ...user, id: nanoid(4) } })
       : dispatch({ type: UPDATE_USER_BY_ID, user });
 
-    dispatch(
-      setUserSlice({
-        id: 0,
-        name: "",
-        username: "",
-        website: "",
-        email: "",
-      })
-    );
+    resetForm();
     updateModalState();
   };
   if (!show) {
@@ -43,7 +35,13 @@ const Modal = ({ updateModalState, show, type }) => {
         }}
       >
         <div className="modal-header">
-          <span className="close" onClick={updateModalState}>
+          <span
+            className="close"
+            onClick={() => {
+              updateModalState();
+              resetForm();
+            }}
+          >
             &times;
           </span>
           <h2>
@@ -56,10 +54,7 @@ const Modal = ({ updateModalState, show, type }) => {
           </h2>
         </div>
         {type === "view" ? (
-          <div className="view_div">
-            {console.log(user)}
-            {JSON.stringify(user)}
-          </div>
+          <div className="view_div">{JSON.stringify(user)}</div>
         ) : (
           <div className="modal-body">
             <form onSubmit={(e) => handleSubmit(e)}>

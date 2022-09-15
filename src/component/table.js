@@ -27,6 +27,18 @@ const Table = () => {
     updateModalState(!modalState);
   };
 
+  const resetForm = () => {
+    dispatch(
+      setUserSlice({
+        id: 0,
+        name: "",
+        username: "",
+        website: "",
+        email: "",
+      })
+    );
+  };
+
   /**
    * handleSearch
    * @param {*} e
@@ -73,6 +85,7 @@ const Table = () => {
         show={modalState}
         type={modalType}
         updateModalState={toggleModal}
+        resetForm={resetForm}
       />
       <table>
         <tr>
