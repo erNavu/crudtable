@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/crudtable/static/css/main.6ab1ad6e.css",
+    "main.js": "/crudtable/static/js/main.3781250d.js",
+    "static/js/787.4200042b.chunk.js": "/crudtable/static/js/787.4200042b.chunk.js",
+    "index.html": "/crudtable/index.html",
+    "main.6ab1ad6e.css.map": "/crudtable/static/css/main.6ab1ad6e.css.map",
+    "main.3781250d.js.map": "/crudtable/static/js/main.3781250d.js.map",
+    "787.4200042b.chunk.js.map": "/crudtable/static/js/787.4200042b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6ab1ad6e.css",
+    "static/js/main.3781250d.js"
+  ]
+}
